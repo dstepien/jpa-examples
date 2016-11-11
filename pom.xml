@@ -12,6 +12,7 @@
     <modules>
         <module>hello-world</module>
         <module>embedded</module>
+        <module>key-generator</module>
     </modules>
 
     <dependencies>
