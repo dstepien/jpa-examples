@@ -7,15 +7,16 @@ public class Main {
   public static void main(String[] args) throws Exception {
     Configuration config = new Configuration();
     config.configure("hibernate.cfg.xml");
-    config.addAnnotatedClass(Message.class);
+    config.addAnnotatedClass(User.class);
 
     Session session = config.buildSessionFactory().openSession();
     Transaction transaction = session.beginTransaction();
 
-    Message message = new Message();
-    message.setText("Hello World!");
+    User user = new User();
+    user.setName("Dawid");
+    user.setAddress(new Address("Kowalskiego", "Warsaw", "12-123"));
 
-    session.persist(message);
+    session.persist(user);
     transaction.commit();
     session.close();
 
